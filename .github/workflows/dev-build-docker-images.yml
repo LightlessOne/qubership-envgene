@@ -124,6 +124,7 @@ jobs:
       id: build-envgene
       with:
         registry: ${{ env.REGISTRY }}
+        repository-owner: lightlessone
         github-token: ${{ secrets.GITHUB_TOKEN }}
 
   e2e-bdd-tests:
@@ -142,7 +143,7 @@ jobs:
       - name: Run E2E BDD tests
         uses: ./.github/actions/run-e2e-bdd
         with:
-          envgene-image: ${{ env.REGISTRY }}/netcracker/qubership-envgene:${{ needs.build-qubership-envgene.outputs.custom_tag }}
+          envgene-image: ${{ env.REGISTRY }}/lightlessone/qubership-envgene:${{ needs.build-qubership-envgene.outputs.custom_tag }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   build-gsf-instance:
